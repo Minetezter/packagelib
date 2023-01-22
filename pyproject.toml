@@ -16,3 +16,7 @@ classifiers = [
     "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Operating System :: POSIX :: Linux",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/Minetezter/packagelib"
+"Bug Tracker" = "https://github.com/Minetezter/packagelib/issues"
