@@ -89,6 +89,24 @@ pack.description("This is my example package with packagelib!!")
 pack.uploadScript("myCode.py", init="import requests")
 ```
 
+**AND**
+
+Your module will automatically be a package. For example, my module I am using as an example (MyExamplePackage) would be imported as 'MyExamplePackage.main'.
+You can change the name of the package from 'main', by changing the optional argument [name] to your choice.
+You can also allow you module to not be imported as a package by adding the text 'import main' to the \_\_init\_\_.py file.
+
+```python
+import packagelib.main as pack
+
+pack.name("MyExamplePackage")
+pack.setup()
+
+pack.description("This is my example package with packagelib!!")
+pack.uploadScript("myCode.py", name="code")
+```
+
+The example above would make the module "MyExamplePackage" be imported as "MyExamplePackage.code"
+
 # Giving you module a license:
 
 Currently, this version only allows MIT and AGPLv3, but more should be coming

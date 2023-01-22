@@ -90,7 +90,9 @@ def description(desc):
 def uploadScript(code, name="main", init=""):
     """You can either enter the name of a file in the [code] argument, or you can enter the code directly.
     This is the actual code of your module, so make sure you have exactly what you want.
-    This also contains the code for the __init__.py file. Although the file __init__.py will be created no matter what, that does not mean it cannot be leeft empty."""
+    This also contains the code for the __init__.py file. Although the file __init__.py will be created no matter what, that does not mean it cannot be leeft empty.
+    Your module will automatically be a package. (something like 'YourPackageName.main') It will be imported as [Name of your package].main.
+    To change this, you can use the optional [name] argument to change the package name from 'main'."""
     
     if _Dir:
         try:
@@ -98,16 +100,16 @@ def uploadScript(code, name="main", init=""):
             content = fs.read()
             fs.close()
             
-            fs = open("main.py", 'x')
+            fs = open(f"{name}.py", 'x')
             fs.write(content)
             fs.close()
             
         except FileNotFoundError:
-            fs = open("main.py", 'x')
+            fs = open(f"{name}.py", 'x')
             fs.write(code)
             fs.close()
             
-            system(f"mv main.py {f'{_Name}1'}/src/{_Name}")
+            system(f"mv {name}.py {f'{_Name}1'}/src/{_Name}")
         except Exception as e:
             raise e
         
