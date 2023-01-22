@@ -7,7 +7,7 @@ Create and publish your modules to PyPI all in python!
 **How to import packagelib with no issues:**
 
 ```python
-from {_Name} import main
+from packagelib import main
 ```
 
 # Naming your module:
