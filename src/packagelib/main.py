@@ -885,6 +885,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 
 def publish(uname, test=True):
+    """Publishes your module.
+    The one argument [uname] is your username. When you run the function, it will prompt your PyPI a password."""
     pwd = getpass("Your PyPI password: ")
     system("python3 -m pip install --upgrade twine")
     
