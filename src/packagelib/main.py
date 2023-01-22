@@ -175,6 +175,9 @@ def noteInfo(version, author, email, pyversion, description, home="", bugs=""):
 
 
 def license():
+    """Allows you to license your module.
+    To go with MIT license run packagelib.license().mit().
+    To do AGPLv3 license you can use packagelib.license().agplv3()."""
     if _Dir:
         class licenses:
             def mit():
