@@ -79,7 +79,7 @@ def description(desc):
         fs = open("README.md", 'w')
         fs.write(f"# {_Name}\n\n")
         fs.write(desc)
-        fs.write(f"\n\n# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nfrom {_Name} import main\n```")
+        fs.write(f"\n\n# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nimport {_Name}.main\n```")
         fs.close()
         
         system(f"mv README.md {f'{_Name}1'}")

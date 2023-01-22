@@ -7,7 +7,7 @@ Create and publish your modules to PyPI all in python!
 **How to import packagelib with no issues:**
 
 ```python
-from packagelib import main
+import packagelib.main
 ```
 
 # Naming your module:
@@ -15,7 +15,7 @@ from packagelib import main
 Give your module a name using the packagelib.name() function:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 ```
@@ -25,7 +25,7 @@ pack.name("MyExamplePackage")
 Setup all files and directories with the packagelib.setup() function:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -36,7 +36,7 @@ pack.setup()
 This will be the description that shows up on PyPI:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -49,7 +49,7 @@ pack.description("This is my example package with packagelib!!")
 This will be the script that will contain your code. Make sure you have the right content.
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -63,7 +63,7 @@ pack.uploadScript("myCode.py") # Enter a file name with your code
 Enter the script directly:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -80,7 +80,7 @@ pack.uploadScript("""
 You can write the \_\_init\_\_.py file:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -94,7 +94,7 @@ pack.uploadScript("myCode.py", init="import requests")
 Currently, this version only allows MIT and AGPLv3, but more should be coming
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -118,7 +118,7 @@ The 'bugs' argument is the bug tracker associated with your module on GitHub.
 **Example:**
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -142,7 +142,7 @@ pack.noteInfo(
 Compile your module files into a complex binary format to be published:
 
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
@@ -167,7 +167,7 @@ pack.buildDist()
 
 When you run this command, keep in mind it will also put it on TestPyPI by default, so you must set the optional argument 'test' to False.
 ```python
-from packagelib import main as pack
+import packagelib.main as pack
 
 pack.name("MyExamplePackage")
 pack.setup()
