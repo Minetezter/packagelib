@@ -82,7 +82,7 @@ def description(desc):
         fs = open("README.md", 'w')
         fs.write(f"# {_Name}\n\n")
         if not _Init:
-            fs.write(f"# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nimport {_Name}.{_Pack)\n\n```")
+            fs.write(f"# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nimport {_Name}.{_Pack}\n\n```")
         fs.write(desc)
         fs.close()
         
