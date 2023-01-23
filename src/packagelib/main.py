@@ -1,14 +1,18 @@
 from os import system
 from getpass import getpass
 
-global Dir, _Named, _Name, _Toml, _License, _App, _Lic
+global Dir, _Named, _Name, _Toml, _License, _App, _Lic, _Pack, _Init
+_Init = False
 _Lic = False
 _Dir = False
 _Named = False
+_Toml = False
 _Name = ""
 _License = ""
 _App = ""
-_Toml = False
+_Pack = "main"
+
+"""BETTER DESCRIPTION HERE: https://pypi.org/project/packagelib/  GO THERE IF YOU WANT TO KNOW HOW TO USE THIS LIBRARY!"""
 
 def name(name):
     """This will get the name of your package.
@@ -74,12 +78,12 @@ def description(desc):
     Add code like this: ```[new line] [code]```
     Create bold text like this: **[text]**
     Create large text like this: # [text]"""
-    
     if _Dir:
         fs = open("README.md", 'w')
         fs.write(f"# {_Name}\n\n")
+        if not _Init:
+            fs.write(f"# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nimport {_Name}.{_Pack)\n\n```")
         fs.write(desc)
-        fs.write(f"\n\n# Importing {_Name}:\n\n**How to import {_Name} with no issues:**\n\n```python\nimport {_Name}.main\n```")
         fs.close()
         
         system(f"mv README.md {f'{_Name}1'}")
@@ -88,11 +92,26 @@ def description(desc):
 
 
 def uploadScript(code, name="main", init=""):
-    """You can either enter the name of a file in the [code] argument, or you can enter the code directly.
-    This is the actual code of your module, so make sure you have exactly what you want.
-    This also contains the code for the __init__.py file. Although the file __init__.py will be created no matter what, that does not mean it cannot be leeft empty.
-    Your module will automatically be a package. (something like 'YourPackageName.main') It will be imported as [Name of your package].main.
-    To change this, you can use the optional [name] argument to change the package name from 'main'."""
+    """This will be the script that will contain your code. Make sure you have the right content. Your code will go in the required argument 'code'.
+    OR
+    You can upload a file by putting a file name in the [code] argument. This will fetch the content from the file.
+    ALSO
+    You can enter code to go in the __init__.py file. This is an optional argument named 'init'. The __init__.py file is required, but it does not have to contain code.
+    AND
+    Your module will automatically be imported as a package.
+    If your module was named 'MyExamplePackage', it would actually be imported as 'MyExamplePackage.main'.
+    You can change this by either changing the package name from 'main' to something else.
+    For example, if you set the optional 'name' argument to 'code', your module named 'MyExamplePackage' would be imported as 'MyExamplePackage.main'.
+    You can also make it not be a package by writing the __init__.py file.
+    For example, if your module was named 'MyExamplePackage', inside the __init__.py file, you could put the code 'import MyExamplePackage'.
+    That would automatically import the file 'MyExamplePackage' as soon as the module was imported."""
+    
+    if init == "import {_Name}":
+        global _Init
+        _Init = True
+    
+    global _Pack
+    _Pack = name
     
     if _Dir:
         try:
